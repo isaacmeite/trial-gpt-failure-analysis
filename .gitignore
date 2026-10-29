@@ -1,9 +1,14 @@
-# local python environment 
+# Local Python environment
 .venv/
+venv/
 
-# python-generated files
+# Python-generated files
 __pycache__/
-*.pyc
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
 # Raw and processed datasets
 data/raw/
@@ -12,8 +17,46 @@ data/processed/
 # Generated experiment artifacts
 outputs/
 
-# Secrets
+# Secrets and local configuration
 .env
+.env.*
+!.env.example
+*.pem
+*.key
 
-# macOS
+# Local clinical-review files containing patient notes
+results/f1_clinical_review_v1.md
+
+# macOS and editor files
 .DS_Store
+.vscode/
+.idea/
+
+# Local qualitative review material
+results/f1_clinical_review_v1.md
+results/f1_disagreements_enriched_v1.csv
+results/f1_review_priority_enriched_v1.csv
+
+# Raw F1 model outputs and exploratory pilots
+results/*pilot*.jsonl
+results/*generalization*.jsonl
+results/age_experiment.jsonl
+results/f1_evaluation_predictions_v1.jsonl
+
+
+references/TrialGPT.py
+src/alterra_trialgpt/trialgpt_original.txt
+# Local qualitative review material
+results/f1_clinical_review_v1.md
+results/f1_disagreements_enriched_v1.csv
+results/f1_review_priority_enriched_v1.csv
+
+# Raw F1 model outputs and exploratory pilots
+results/*pilot*.jsonl
+results/*generalization*.jsonl
+results/age_experiment.jsonl
+results/f1_evaluation_predictions_v1.jsonl
+
+# Review original source provenance before publishing
+references/TrialGPT.py
+src/alterra_trialgpt/trialgpt_original.txt

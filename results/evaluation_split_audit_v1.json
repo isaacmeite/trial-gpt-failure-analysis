@@ -1,0 +1,21 @@
+{
+  "development_annotations": 786,
+  "holdout_annotations": 229,
+  "development_patients": 42,
+  "holdout_patients": 11,
+  "overlapping_patients": 0,
+  "patient_disjoint": true,
+  "holdout_patient_ids": [
+    "sigir-201416",
+    "sigir-201425",
+    "sigir-201426",
+    "sigir-201427",
+    "sigir-201429",
+    "sigir-20143",
+    "sigir-20149",
+    "sigir-20151",
+    "sigir-201510",
+    "sigir-201513",
+    "sigir-201521"
+  ]
+}

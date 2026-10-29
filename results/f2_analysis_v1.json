@@ -1,0 +1,99 @@
+{
+  "experiment_id": "f2_evaluation_v1",
+  "model": "gpt-5-mini-2025-08-07",
+  "unique_cases": 20,
+  "total_responses": 40,
+  "results": {
+    "clinical_neutral_v1": {
+      "by_reference": {
+        "unknown": {
+          "n": 12,
+          "correct": 12,
+          "predicted_status_counts": {
+            "unknown": 12
+          }
+        },
+        "present": {
+          "n": 4,
+          "correct": 4,
+          "predicted_status_counts": {
+            "present": 4
+          }
+        },
+        "absent": {
+          "n": 4,
+          "correct": 4,
+          "predicted_status_counts": {
+            "absent": 4
+          }
+        }
+      },
+      "unsupported_absent_count": 0,
+      "unknown_case_count": 12,
+      "unsupported_absent_rate": 0.0,
+      "overall_correct": 20,
+      "overall_n": 20,
+      "overall_accuracy": 1.0
+    },
+    "clinical_inference_v1": {
+      "by_reference": {
+        "unknown": {
+          "n": 12,
+          "correct": 9,
+          "predicted_status_counts": {
+            "absent": 3,
+            "unknown": 9
+          }
+        },
+        "present": {
+          "n": 4,
+          "correct": 4,
+          "predicted_status_counts": {
+            "present": 4
+          }
+        },
+        "absent": {
+          "n": 4,
+          "correct": 4,
+          "predicted_status_counts": {
+            "absent": 4
+          }
+        }
+      },
+      "unsupported_absent_count": 3,
+      "unknown_case_count": 12,
+      "unsupported_absent_rate": 0.25,
+      "overall_correct": 17,
+      "overall_n": 20,
+      "overall_accuracy": 0.85
+    }
+  },
+  "inference_minus_neutral_unsupported_absent_rate": 0.25,
+  "unknown_cases_with_different_predictions": [
+    {
+      "case_id": "f2_u01",
+      "condition": "septic shock",
+      "neutral_prediction": "unknown",
+      "inference_prediction": "absent"
+    },
+    {
+      "case_id": "f2_u02",
+      "condition": "deep vein thrombosis",
+      "neutral_prediction": "unknown",
+      "inference_prediction": "absent"
+    },
+    {
+      "case_id": "f2_u06",
+      "condition": "active tuberculosis",
+      "neutral_prediction": "unknown",
+      "inference_prediction": "absent"
+    }
+  ],
+  "limitations": [
+    "Researcher-authored synthetic cases.",
+    "One response per case per prompt.",
+    "Small sample with no real-patient validation.",
+    "Cases were not sampled to represent clinical practice.",
+    "Prompt comparison is descriptive, not causal proof of general model behavior."
+  ]
+}

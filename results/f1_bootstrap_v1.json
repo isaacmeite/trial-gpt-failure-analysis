@@ -1,0 +1,39 @@
+{
+  "experiment_id": "f1_evaluation_v1",
+  "method": "paired_patient_cluster_percentile_bootstrap",
+  "seed": 20261028,
+  "bootstrap_samples": 10000,
+  "patient_clusters": 10,
+  "annotations": 148,
+  "confidence_level": 0.95,
+  "intervals": {
+    "accuracy_improvement": {
+      "observed_effect": 0.11486486486486491,
+      "lower_95": 0.05833333333333335,
+      "upper_95": 0.16574585635359113,
+      "valid_bootstrap_samples": 10000,
+      "undefined_bootstrap_samples": 0
+    },
+    "false_na_rate_reduction": {
+      "observed_effect": 0.03809523809523809,
+      "lower_95": 0.010526315789473682,
+      "upper_95": 0.06796116504854369,
+      "valid_bootstrap_samples": 10000,
+      "undefined_bootstrap_samples": 0
+    },
+    "genuine_na_recall_change": {
+      "observed_effect": -0.09090909090909094,
+      "lower_95": -0.5,
+      "upper_95": 0.0,
+      "valid_bootstrap_samples": 9999,
+      "undefined_bootstrap_samples": 1
+    }
+  },
+  "limitations": [
+    "Only 10 patient clusters.",
+    "Cluster sizes are unequal.",
+    "Rare reference classes can be absent from resamples.",
+    "Percentile intervals may have poor coverage with few clusters.",
+    "Results describe this benchmark and adapted prompts."
+  ]
+}

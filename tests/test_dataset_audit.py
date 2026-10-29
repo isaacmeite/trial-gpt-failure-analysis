@@ -1,4 +1,7 @@
-from alterra_trialgpt.dataset_audit import audit_annotations
+from alterra_trialgpt.dataset_audit import (
+    audit_annotations,
+    find_duplicate_annotation_ids,
+)
 
 annotation_5 = {
     "annotation_id": 5,
@@ -43,3 +46,17 @@ def test_audit_collects_valid_annotations() -> None:
     actual = audit_annotations([annotation])
 
     assert len(actual) == 0
+
+
+def test_duplicate_annotation_ids_are_detected() -> None:
+
+    annotations = [
+        {"annotation_id": 1},
+        {"annotation_id": 2},
+        {"annotation_id": 2},
+        {"annotation_id": 3},
+    ]
+
+    duplicates = find_duplicate_annotation_ids(annotations)
+
+    assert duplicates == [2]

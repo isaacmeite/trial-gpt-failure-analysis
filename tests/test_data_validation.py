@@ -85,3 +85,75 @@ def test_annotation_reports_multiple_violations() -> None:
         "missing_patient_id",
         "missing_annotation_id",
     }
+
+
+def test_missing_required_fields_are_reported() -> None:
+    annotation = {
+        "annotation_id": 10,
+        "patient_id": 200,
+        "criterion_type": "inclusion",
+        "gpt4_eligibility": "included",
+    }
+
+    violations = validate_annotation(annotation)
+
+    assert "missing_expert_eligibility" in violations
+
+
+def test_unknown_criterion_type_still_checks_identifiers() -> None:
+    annotation_5 = {
+        "criterion_type": "unknown",
+        "expert_eligibility": "included",
+        "gpt4_eligibility": "included",
+    }
+
+    violations = validate_annotation(annotation_5)
+
+    assert set(violations) == {
+        "invalid_criterion_type",
+        "missing_patient_id",
+        "missing_annotation_id",
+    }
+
+
+def test_missing_criterion_type_is_reported() -> None:
+    annotation_6 = {
+        "annotation_id": 20,
+        "patient_id": 100,
+        "expert_eligibility": "included",
+        "gpt4_eligibility": "included",
+    }
+
+    violations = validate_annotation(annotation_6)
+
+    assert "missing_criterion_type" in violations
+
+
+def test_none_expert_eligibility_is_missing() -> None:
+    annotation = {
+        "annotation_id": 21,
+        "patient_id": 100,
+        "criterion_type": "inclusion",
+        "expert_eligibility": None,
+        "gpt4_eligibility": "included",
+    }
+
+    violations = validate_annotation(annotation)
+
+    assert "missing_expert_eligibility" in violations
+    assert "invalid_expert_label" not in violations
+
+
+def test_none_criterion_type_is_missing() -> None:
+    annotation = {
+        "annotation_id": 22,
+        "patient_id": 100,
+        "criterion_type": None,
+        "expert_eligibility": "included",
+        "gpt4_eligibility": "included",
+    }
+
+    violations = validate_annotation(annotation)
+
+    assert "missing_criterion_type" in violations
+    assert "invalid_criterion_type" not in violations

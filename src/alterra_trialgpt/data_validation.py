@@ -20,31 +20,42 @@ def validate_annotation(
     """
 
     violations = []
-    criterion_type = annotation["criterion_type"]
 
-    if criterion_type not in VALID_LABELS:
-        violations.append("invalid_criterion_type")
+    if annotation.get("criterion_type") is None:
+        violations.append("missing_criterion_type")
+
     else:
-        is_valid_expert_label = is_valid_eligibility_label(
-            criterion_type,
-            annotation["expert_eligibility"],
-        )
+        criterion_type = annotation["criterion_type"]
 
-        is_valid_gpt4_label = is_valid_eligibility_label(
-            criterion_type,
-            annotation["gpt4_eligibility"],
-        )
+        if criterion_type not in VALID_LABELS:
+            violations.append("invalid_criterion_type")
+        else:
+            if annotation.get("expert_eligibility") is None:
+                violations.append("missing_expert_eligibility")
+            else:
+                is_valid_expert_label = is_valid_eligibility_label(
+                    criterion_type,
+                    annotation["expert_eligibility"],
+                )
 
-        if not is_valid_expert_label:
-            violations.append("invalid_expert_label")
+                if not is_valid_expert_label:
+                    violations.append("invalid_expert_label")
 
-        if not is_valid_gpt4_label:
-            violations.append("invalid_gpt4_label")
+            if annotation.get("gpt4_eligibility") is None:
+                violations.append("missing_gpt4_eligibility")
+            else:
+                is_valid_gpt4_label = is_valid_eligibility_label(
+                    criterion_type,
+                    annotation["gpt4_eligibility"],
+                )
 
-        if annotation.get("patient_id") is None:
-            violations.append("missing_patient_id")
+                if not is_valid_gpt4_label:
+                    violations.append("invalid_gpt4_label")
 
-        if annotation.get("annotation_id") is None:
-            violations.append("missing_annotation_id")
+    if annotation.get("patient_id") is None:
+        violations.append("missing_patient_id")
+
+    if annotation.get("annotation_id") is None:
+        violations.append("missing_annotation_id")
 
     return violations

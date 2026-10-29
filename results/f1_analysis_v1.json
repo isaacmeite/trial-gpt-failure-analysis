@@ -1,0 +1,155 @@
+{
+  "experiment_id": "f1_evaluation_v1",
+  "model": "gpt-5-mini-2025-08-07",
+  "total_annotations": 148,
+  "total_predictions": 296,
+  "total_patients": 10,
+  "reference_label_counts": {
+    "excluded": 4,
+    "not enough information": 28,
+    "not excluded": 105,
+    "not applicable": 11
+  },
+  "baseline": {
+    "total": 148,
+    "correct": 79,
+    "accuracy": 0.5337837837837838,
+    "false_na_count": 6,
+    "false_na_denominator": 105,
+    "false_na_rate": 0.05714285714285714,
+    "genuine_na_correct": 9,
+    "genuine_na_denominator": 11,
+    "genuine_na_recall": 0.8181818181818182,
+    "confusion_matrix": {
+      "excluded": {
+        "excluded": 3,
+        "not excluded": 0,
+        "not applicable": 0,
+        "not enough information": 1
+      },
+      "not excluded": {
+        "excluded": 4,
+        "not excluded": 49,
+        "not applicable": 6,
+        "not enough information": 46
+      },
+      "not applicable": {
+        "excluded": 0,
+        "not excluded": 1,
+        "not applicable": 9,
+        "not enough information": 1
+      },
+      "not enough information": {
+        "excluded": 3,
+        "not excluded": 4,
+        "not applicable": 3,
+        "not enough information": 18
+      }
+    },
+    "class_metrics": {
+      "excluded": {
+        "support": 4,
+        "predicted_count": 10,
+        "precision": 0.3,
+        "recall": 0.75,
+        "f1": 0.4285714285714285
+      },
+      "not excluded": {
+        "support": 105,
+        "predicted_count": 54,
+        "precision": 0.9074074074074074,
+        "recall": 0.4666666666666667,
+        "f1": 0.6163522012578616
+      },
+      "not applicable": {
+        "support": 11,
+        "predicted_count": 18,
+        "precision": 0.5,
+        "recall": 0.8181818181818182,
+        "f1": 0.6206896551724137
+      },
+      "not enough information": {
+        "support": 28,
+        "predicted_count": 66,
+        "precision": 0.2727272727272727,
+        "recall": 0.6428571428571429,
+        "f1": 0.3829787234042553
+      }
+    }
+  },
+  "ablation": {
+    "total": 148,
+    "correct": 96,
+    "accuracy": 0.6486486486486487,
+    "false_na_count": 2,
+    "false_na_denominator": 105,
+    "false_na_rate": 0.01904761904761905,
+    "genuine_na_correct": 8,
+    "genuine_na_denominator": 11,
+    "genuine_na_recall": 0.7272727272727273,
+    "confusion_matrix": {
+      "excluded": {
+        "excluded": 3,
+        "not excluded": 0,
+        "not applicable": 0,
+        "not enough information": 1
+      },
+      "not excluded": {
+        "excluded": 4,
+        "not excluded": 69,
+        "not applicable": 2,
+        "not enough information": 30
+      },
+      "not applicable": {
+        "excluded": 0,
+        "not excluded": 2,
+        "not applicable": 8,
+        "not enough information": 1
+      },
+      "not enough information": {
+        "excluded": 4,
+        "not excluded": 7,
+        "not applicable": 1,
+        "not enough information": 16
+      }
+    },
+    "class_metrics": {
+      "excluded": {
+        "support": 4,
+        "predicted_count": 11,
+        "precision": 0.2727272727272727,
+        "recall": 0.75,
+        "f1": 0.39999999999999997
+      },
+      "not excluded": {
+        "support": 105,
+        "predicted_count": 78,
+        "precision": 0.8846153846153846,
+        "recall": 0.6571428571428571,
+        "f1": 0.7540983606557377
+      },
+      "not applicable": {
+        "support": 11,
+        "predicted_count": 11,
+        "precision": 0.7272727272727273,
+        "recall": 0.7272727272727273,
+        "f1": 0.7272727272727273
+      },
+      "not enough information": {
+        "support": 28,
+        "predicted_count": 48,
+        "precision": 0.3333333333333333,
+        "recall": 0.5714285714285714,
+        "f1": 0.4210526315789474
+      }
+    }
+  },
+  "paired_comparison": {
+    "corrected_cases": 27,
+    "newly_wrong_cases": 10,
+    "unchanged_correctness_cases": 111,
+    "accuracy_improvement": 0.11486486486486491,
+    "false_na_rate_reduction": 0.03809523809523809,
+    "genuine_na_recall_change": -0.09090909090909094
+  }
+}
