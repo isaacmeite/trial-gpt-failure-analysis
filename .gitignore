@@ -1,0 +1,19 @@
+# local python environment 
+.venv/
+
+# python-generated files
+__pycache__/
+*.pyc
+
+# Raw and processed datasets
+data/raw/
+data/processed/
+
+# Generated experiment artifacts
+outputs/
+
+# Secrets
+.env
+
+# macOS
+.DS_Store
